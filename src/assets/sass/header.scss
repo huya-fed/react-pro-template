@@ -1,0 +1,39 @@
+$base-font-size: 23.4375px; //design 750px / 32 = 20px;
+// $base-font-size: 20px; //design 640px / 32 = 20px;
+
+@function PTR($px) {//px to rem
+  @return $px / $base-font-size /2 * 1rem;
+}
+
+@mixin bg($url) {
+  background:url($url) center no-repeat;
+  background-size: 100% 100%;
+}
+
+@mixin wh($width, $height, $hasLineHeight) {
+  width: PTR($width);
+  height: PTR($height);
+
+  @if $hasLineHeight == true {
+    line-height: PTR($height);
+  }
+}
+@mixin colorFont($color, $fontSize) {
+  color:$color;
+  font-size: PTR($fontSize);
+}
+
+@mixin flexCenter {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+}
+
+.top-header{
+	height:PTR(45px);
+}
+
+.flex{
+	@include flexCenter;
+}
